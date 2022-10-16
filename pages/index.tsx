@@ -5,9 +5,6 @@ import { useState } from "react";
 // HOOKS
 import { useWallet } from "hooks/useWallet";
 
-// UTILS
-import { getENSNameByAddress } from "utils/getENSNameByAddress";
-
 const Home: NextPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
@@ -36,7 +33,8 @@ const Home: NextPage = () => {
             sessionStorage.setItem("auth-app-session", "true");
             setIsLoading(false);
             router.push("/profile");
-        } catch (error) {
+
+        } catch (error: any) {
             setIsLoading(false);
             setError(error?.message || "Internal Server Error");
         }
