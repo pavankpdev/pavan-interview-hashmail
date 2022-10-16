@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import Web3 from "web3";
 
 // This Hook will be used to handle certain tasks that involves wallets such as connecting to a wallet,
@@ -9,7 +9,7 @@ export function useWallet() {
     const connectWallet = useCallback(async () => {
         if (typeof window?.ethereum !== "undefined") {
 
-            const account = await window?.ethereum.request({
+            await window?.ethereum.request({
                 method: "eth_requestAccounts",
             });
             return true;
