@@ -1,24 +1,34 @@
-# pavan-interview
-repo for the interview of Pavan Kumar
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is a brief problem statement to evaluate your comfort with web3 and supabase. Please add a PR with your code once done
+## Getting Started
 
-## Problem statement
+First, run the development server:
 
-We are building a simple web3 auth mechanism, and link that to supabase in the backend. Here is the objective
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-1. A user lands on a login screen with a single option to connect wallet
-2. On connecting the wallet / signing a message, register a new user in a supabase project. And set the session to logged in. 
-3. Store the wallet address, and ENS name (if available) in a table in supabase
-3. In the logged in state, redirect the user to a screen, where the users wallet address and ENS name (if available) is displayed
-4. Logout on this screen should take the user back to the main screen
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Tools required - all free versions
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-1. NextJS - deploy on vercel please
-2. Tailwind - for basic CSS
-3. Supabase
-4. Any node provider of your choice for ENS resolution
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-For any questions, ping on whatsapp please
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
