@@ -3,10 +3,16 @@ import Web3 from "web3";
 
 // This Hook will be used to handle certain tasks that involves wallets such as connecting to a wallet,
 // disconnecting from a wallet, getting the current wallet address, etc.
+declare global {
+    interface Window {
+        ethereum: any;
+    }
+}
 
 export function useWallet() {
 
     const connectWallet = useCallback(async () => {
+
         if (typeof window?.ethereum !== "undefined") {
 
             await window?.ethereum.request({

@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import {useRouter} from 'next/router'
 
+declare global {
+    interface Window {
+        ethereum: any;
+    }
+}
+
 export function useUser() {
     const [profile, setProfile] = useState({
         address: "",
