@@ -28,7 +28,7 @@ const Profile: NextPage = () => {
     return (
         <div className="flex items-center justify-center h-screen">
         <div>
-            <h2>Hey! Here's your</h2>
+            <h2>Hey! Here&apos;s your</h2>
             <h1 className="text-lg font-semibold text-gray-600">Wallet Address: <span className={"text-xl font-bold text-black"}>{profile.address}</span> </h1>
             <h1 className="text-lg font-semibold text-gray-600">ENS Name: <span className={"text-xl font-bold text-black"}>{profile.ensName}</span></h1>
             <button
