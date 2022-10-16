@@ -4,7 +4,6 @@ import { useCallback, useState } from "react";
 // disconnecting from a wallet, getting the current wallet address, etc.
 
 export function useWallet() {
-    const [account, setAccount] = useState<string | null>();
 
     const connectWallet = useCallback(async () => {
         if (typeof window?.ethereum !== "undefined") {
@@ -12,7 +11,6 @@ export function useWallet() {
             const account = await window?.ethereum.request({
                 method: "eth_requestAccounts",
             });
-            setAccount(account);
             return true;
         }
         return false;
@@ -29,7 +27,6 @@ export function useWallet() {
                 const messageHash = ethers.utils.hashMessage(message);
                 const signature = await signer.signMessage(messageHash);
                 const accounts = await signer.getAddress();
-                setAccount(accounts);
                 return { signature, account: accounts };
             } catch (err) {
                 console.log(err)
@@ -38,5 +35,5 @@ export function useWallet() {
         }
     }, []);
 
-    return { account, signWithWallet, connectWallet };
+    return { signWithWallet, connectWallet };
 }
