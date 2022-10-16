@@ -5,11 +5,11 @@ import { createClient } from "@supabase/supabase-js";
 // UTILS
 import { getENSNameByAddress } from "utils/getENSNameByAddress";
 
+// CONFIG
+import supabase from "config/supabase";
+
 export default async function (req: NextApiRequest, res: NextApiResponse) {
     try {
-        const supabaseUrl = process.env.SUPABASE_PROJECT_URL as string;
-        const supabaseKey = process.env.SUPABASE_API_KEY as string;
-
         if (req.method !== "POST")
             return res.status(405).json({ message: "Method not allowed" });
         const { address } = req.body;
@@ -25,8 +25,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
         if (addressFromSignature.toLowerCase() !== address.toLowerCase())
             return res.status(401).json({ message: "Invalid Signature" });
-
-        const supabase = createClient(supabaseUrl, supabaseKey);
 
         const { data: user } = await supabase
             .from("users")

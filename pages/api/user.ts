@@ -2,15 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import Web3 from "web3";
 import { createClient } from "@supabase/supabase-js";
 
+// CONFIG
+import supabase from "config/supabase";
+
 export default async function (req: NextApiRequest, res: NextApiResponse) {
     try {
-        const supabaseUrl = process.env.SUPABASE_PROJECT_URL as string;
-        const supabaseKey = process.env.SUPABASE_API_KEY as string;
-
         const { address } = req.query;
 
-        const supabase = createClient(supabaseUrl, supabaseKey);
-        console.log({address})
         const { data: user } = await supabase
             .from("users")
             .select("*")
